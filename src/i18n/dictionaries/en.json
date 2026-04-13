@@ -1,0 +1,204 @@
+{
+  "site": {
+    "name": "Sotoon Tech",
+    "nameEn": "Sotoon Tech",
+    "description": "Website & Application Design and Development from A to Z",
+    "email": "info@sotoontech.com",
+    "phone": "+98 912 000 0000"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "startProject": "Start a Project"
+  },
+  "hero": {
+    "badge": "Available for new projects",
+    "titleLine1": "We turn your ideas into",
+    "titleHighlight": "digital reality",
+    "titleLine2": "",
+    "subtitle": "Sotoon Tech is your technical partner in designing and developing websites and applications from scratch using the latest technologies.",
+    "cta1": "Start a Project",
+    "cta2": "View Portfolio"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We build your digital products using the best technologies and modern practices",
+    "items": [
+      {
+        "title": "Web Design",
+        "description": "Modern, fast, and responsive website design and development with the latest technologies"
+      },
+      {
+        "title": "Mobile Apps",
+        "description": "High-performance iOS and Android application development with great UX"
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "Beautiful user interface and seamless user experience design for digital products"
+      },
+      {
+        "title": "Technical Consulting",
+        "description": "Expert consulting in technology selection, software architecture, and digital strategy"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "A look at the projects we've proudly delivered for our clients",
+    "viewAll": "View All Projects",
+    "items": [
+      {
+        "title": "Moda Online Store",
+        "category": "Website",
+        "description": "Online fashion store with integrated payment system"
+      },
+      {
+        "title": "Fitness App",
+        "category": "Application",
+        "description": "Fitness application with workout tracking capabilities"
+      },
+      {
+        "title": "Admin Dashboard",
+        "category": "Web App",
+        "description": "Advanced management panel with reporting and analytics"
+      },
+      {
+        "title": "Noavaran Corporate Website",
+        "category": "Website",
+        "description": "Corporate website with minimal and professional design"
+      }
+    ]
+  },
+  "whyUs": {
+    "title": "Why Sotoon Tech?",
+    "subtitle": "What sets us apart from the rest",
+    "stats": [
+      { "value": 50, "suffix": "+", "label": "Successful Projects" },
+      { "value": 30, "suffix": "+", "label": "Happy Clients" },
+      { "value": 5, "suffix": "+", "label": "Years Experience" },
+      { "value": 10, "suffix": "", "label": "Team Members" }
+    ],
+    "reasons": [
+      { "title": "Clean Code", "description": "Using the best design patterns and modern standards" },
+      { "title": "On-Time Delivery", "description": "Full commitment to project timelines and milestones" },
+      { "title": "Ongoing Support", "description": "Post-delivery technical support for any issues" },
+      { "title": "Modern Technologies", "description": "Using the latest and best tools and frameworks" }
+    ]
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What our clients say about working with Sotoon Tech",
+    "items": [
+      {
+        "name": "Ali Mohammadi",
+        "role": "CEO of Noavaran",
+        "content": "Working with Sotoon Tech was one of our best decisions. A professional and creative team delivered the project with high quality."
+      },
+      {
+        "name": "Sara Ahmadi",
+        "role": "Founder of FitLife Startup",
+        "content": "From design to development, everything was precise and professional. Excellent support and on-time delivery."
+      },
+      {
+        "name": "Reza Karimi",
+        "role": "Manager of Moda Store",
+        "content": "After the redesign by Sotoon Tech, our store sales increased by 40%. Truly grateful."
+      }
+    ]
+  },
+  "techStack": {
+    "title": "Technologies",
+    "subtitle": "Tools and technologies we use to build great products"
+  },
+  "cta": {
+    "titleLine1": "Ready to start",
+    "titleLine2": "a new project?",
+    "subtitle": "Contact us to discuss your project. Initial consultation is free.",
+    "email": "Send Email",
+    "call": "Call Us"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contactTitle": "Contact Us",
+    "copyright": "All rights reserved.",
+    "madeWith": "Made with ❤️ by"
+  },
+  "about": {
+    "tag": "About Sotoon Tech",
+    "titleLine1": "We build",
+    "titleHighlight": "digital products",
+    "titleLine2": "",
+    "subtitle": "A team of professional designers and developers passionate about creating amazing digital experiences",
+    "storyTag": "Our Story",
+    "storyTitle": "From a simple idea to a professional team",
+    "storyP1": "Sotoon Tech was founded with the goal of providing internationally-quality web and app design and development services. We believe every business deserves a professional digital presence.",
+    "storyP2": "Our team, with a combination of creativity and technical knowledge, builds products that are not only beautiful but also perform exceptionally well and provide an ideal user experience.",
+    "valuesTitle": "Our Values",
+    "values": [
+      { "title": "Quality", "description": "We never sacrifice quality for speed. Every line of code must be the best.", "icon": "✦" },
+      { "title": "Innovation", "description": "We are always looking for new and creative solutions.", "icon": "◈" },
+      { "title": "Transparency", "description": "Transparent and honest communication with clients at all stages.", "icon": "◇" },
+      { "title": "Commitment", "description": "We are committed to our promises and deliver projects on time.", "icon": "△" }
+    ],
+    "timelineTitle": "Our Journey",
+    "timeline": [
+      { "year": "2021", "title": "Getting Started", "description": "Sotoon Tech started with a team of 3" },
+      { "year": "2022", "title": "Team Growth", "description": "Team grew to 6 members and first major projects were completed" },
+      { "year": "2024", "title": "Service Expansion", "description": "Added mobile app development and technical consulting services" },
+      { "year": "2026", "title": "Today", "description": "A team of 10 with over 50 successful projects" }
+    ],
+    "teamTitle": "Our Team",
+    "teamSubtitle": "The people behind Sotoon Tech",
+    "team": [
+      { "name": "Mohammad Rezaei", "role": "Founder & CEO" },
+      { "name": "Sara Mohammadi", "role": "Senior UI/UX Designer" },
+      { "name": "Ali Hosseini", "role": "Senior Frontend Developer" },
+      { "name": "Niloofar Ahmadi", "role": "Senior Backend Developer" }
+    ]
+  },
+  "contact": {
+    "tag": "Contact Us",
+    "title": "Let's Talk",
+    "subtitle": "Have a project in mind? Contact us to discuss it. Initial consultation is free.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "email@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Select an option",
+      "subjectOptions": ["Web Design", "Mobile App", "UI/UX Design", "Technical Consulting", "Other"],
+      "budget": "Estimated Budget",
+      "budgetPlaceholder": "Select an option",
+      "budgetOptions": ["$1,000 - $3,000", "$3,000 - $5,000", "$5,000 - $10,000", "$10,000+"],
+      "message": "Project Details",
+      "messagePlaceholder": "Tell us about your project...",
+      "submit": "Send Message"
+    },
+    "infoTitle": "Get in Touch",
+    "infoSubtitle": "Reach out to us through any channel you prefer",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "telegramLabel": "Telegram",
+    "mapPlaceholder": "Map will be placed here"
+  },
+  "blog": {
+    "tag": "Sotoon Tech Blog",
+    "title": "Articles & Tutorials",
+    "subtitle": "Latest technical articles on web and app design and development",
+    "readMore": "Read More",
+    "posts": [
+      { "title": "Why Next.js Is the Best Choice for Your Next Project", "excerpt": "Exploring the advantages of Next.js over other frameworks", "date": "Apr 9, 2026", "category": "Web Dev", "readTime": "5 min" },
+      { "title": "UI/UX Design Principles Every Designer Should Know", "excerpt": "Understanding the fundamentals of user interface and user experience design", "date": "Apr 4, 2026", "category": "Design", "readTime": "8 min" },
+      { "title": "React Native or Flutter? Which One to Choose?", "excerpt": "A comprehensive comparison of two popular mobile frameworks", "date": "Mar 30, 2026", "category": "Mobile", "readTime": "10 min" },
+      { "title": "Website Performance Optimization: Complete Guide", "excerpt": "Practical techniques and tools for improving website speed", "date": "Mar 25, 2026", "category": "Web Dev", "readTime": "7 min" },
+      { "title": "Tailwind CSS and the Future of Web Styling", "excerpt": "Why Tailwind CSS has become the most popular CSS framework", "date": "Mar 18, 2026", "category": "Web Dev", "readTime": "6 min" },
+      { "title": "TypeScript: Why You Should Migrate from JavaScript", "excerpt": "Benefits of TypeScript that every developer should know", "date": "Mar 10, 2026", "category": "Web Dev", "readTime": "9 min" }
+    ]
+  }
+}

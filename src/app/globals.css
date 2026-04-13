@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #274c78;
+  --color-accent-light: #3a6ba5;
+
+  --font-inter: "Inter", system-ui, -apple-system, sans-serif;
+  --font-vazirmatn: "Vazirmatn", system-ui, sans-serif;
+
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===== Light theme (default) ===== */
+:root {
+  --bg: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #1a1a1a;
+  --text-muted: #888888;
+  --border-color: #e5e5e5;
+  --card-bg: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== Dark theme ===== */
+:root.dark {
+  --bg: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #f0f0f0;
+  --text-muted: #888888;
+  --border-color: #2a2a2a;
+  --card-bg: #161616;
+  --glass-bg: rgba(15, 15, 15, 0.85);
+}
+
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-primary);
+  background-color: var(--bg);
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.font-vazirmatn {
+  font-family: "Vazirmatn", system-ui, sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* ===== Theme utility classes ===== */
+.bg-main {
+  background-color: var(--bg);
+}
+
+.bg-subtle {
+  background-color: var(--bg-secondary);
+}
+
+.text-heading {
+  color: var(--text-primary);
+}
+
+.text-body {
+  color: var(--text-muted);
+}
+
+.border-themed {
+  border-color: var(--border-color);
+}
+
+.card-bg {
+  background-color: var(--card-bg);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===== Lenis ===== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ===== Layout ===== */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* ===== Accent dot ===== */
+.accent-dot {
+  color: var(--color-accent);
+}
+
+/* ===== Divider ===== */
+.divider {
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-accent);
+}
