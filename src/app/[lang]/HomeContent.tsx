@@ -14,6 +14,7 @@ import TechStack from "@/components/sections/TechStack";
 import CTA from "@/components/sections/CTA";
 import Preloader from "@/components/ui/Preloader";
 import CursorGlow from "@/components/ui/CursorGlow";
+import BackgroundGrid from "@/components/ui/BackgroundGrid";
 
 export default function HomeContent({
   dict,
@@ -26,10 +27,11 @@ export default function HomeContent({
     <>
       <Preloader />
       <CursorGlow />
+      <BackgroundGrid />
       <SmoothScroll>
         <Header dict={dict} locale={locale} />
         <main>
-          <Hero dict={dict} locale={locale} />
+          <Hero dict={dict} />
           <Services dict={dict} />
           <Portfolio dict={dict} locale={locale} />
           <WhyUs dict={dict} />

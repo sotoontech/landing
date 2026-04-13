@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   fadeUp,
   slideInLeft,
@@ -40,26 +41,27 @@ export default function AboutContent({
                 {d.tag}
               </motion.span>
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6 text-heading"
                 variants={fadeUp}
               >
                 {d.titleLine1}{" "}
-                <span className="text-gradient">{d.titleHighlight}</span>
+                <span className="text-accent">{d.titleHighlight}</span>
                 {d.titleLine2 && (
                   <>
                     <br />
                     {d.titleLine2}
                   </>
                 )}
+                <span className="accent-dot">.</span>
               </motion.h1>
-              <motion.p className="text-muted text-lg max-w-2xl mx-auto" variants={fadeUp}>
+              <motion.p className="text-body text-lg max-w-2xl mx-auto" variants={fadeUp}>
                 {d.subtitle}
               </motion.p>
             </motion.div>
           </div>
 
           {/* Story */}
-          <section className="section-padding bg-secondary/50">
+          <section className="section-padding border-t border-themed">
             <div className="container-custom">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <motion.div
@@ -68,46 +70,54 @@ export default function AboutContent({
                   viewport={{ once: true }}
                   variants={slideInRight}
                 >
+                  <div className="divider mb-6" />
                   <span className="text-accent text-sm font-medium">{d.storyTag}</span>
-                  <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-6">{d.storyTitle}</h2>
-                  <div className="space-y-4 text-muted leading-relaxed">
+                  <h2 className="text-3xl md:text-4xl font-bold mt-3 mb-6 text-heading">
+                    {d.storyTitle}<span className="accent-dot">.</span>
+                  </h2>
+                  <div className="space-y-4 text-body leading-relaxed">
                     <p>{d.storyP1}</p>
                     <p>{d.storyP2}</p>
                   </div>
                 </motion.div>
                 <motion.div
-                  className="aspect-square rounded-3xl bg-linear-to-br from-accent/10 to-accent-light/10 flex items-center justify-center"
+                  className="relative aspect-square rounded-sm overflow-hidden"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={slideInLeft}
                 >
-                  <div className="text-accent/20">
-                    <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={0.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
-                    </svg>
-                  </div>
+                  <Image
+                    src="/images/about/team.jpg"
+                    alt="Sotoon Tech Team"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </motion.div>
               </div>
             </div>
           </section>
 
           {/* Values */}
-          <section className="section-padding">
+          <section className="section-padding border-t border-themed">
             <div className="container-custom">
               <motion.div
-                className="text-center mb-16"
+                className="mb-16"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
               >
-                <motion.h2 className="text-3xl md:text-4xl font-bold" variants={fadeUp}>
-                  {d.valuesTitle}
-                </motion.h2>
+                <motion.div variants={fadeUp}>
+                  <div className="divider mb-6" />
+                  <h2 className="text-3xl md:text-4xl font-bold text-heading">
+                    {d.valuesTitle}<span className="accent-dot">.</span>
+                  </h2>
+                </motion.div>
               </motion.div>
               <motion.div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
@@ -116,13 +126,12 @@ export default function AboutContent({
                 {d.values.map((value, i) => (
                   <motion.div
                     key={i}
-                    className="text-center p-8 rounded-2xl border border-border hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 transition-all duration-500"
+                    className="p-8 border-t border-themed sm:border-s first:border-s-0 sm:nth-2:border-s sm:nth-3:border-s-0 lg:nth-3:border-s"
                     variants={fadeUp}
-                    whileHover={{ y: -5 }}
                   >
-                    <div className="text-3xl mb-4 text-accent">{value.icon}</div>
-                    <h3 className="font-bold text-lg mb-2">{value.title}</h3>
-                    <p className="text-muted text-sm leading-relaxed">{value.description}</p>
+                    <div className="text-2xl mb-4 text-accent">{value.icon}</div>
+                    <h3 className="font-bold text-lg mb-2 text-heading">{value.title}</h3>
+                    <p className="text-body text-sm leading-relaxed">{value.description}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -130,21 +139,24 @@ export default function AboutContent({
           </section>
 
           {/* Timeline */}
-          <section className="section-padding bg-secondary/50">
+          <section className="section-padding border-t border-themed">
             <div className="container-custom">
               <motion.div
-                className="text-center mb-16"
+                className="mb-16"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
               >
-                <motion.h2 className="text-3xl md:text-4xl font-bold" variants={fadeUp}>
-                  {d.timelineTitle}
-                </motion.h2>
+                <motion.div variants={fadeUp}>
+                  <div className="divider mb-6" />
+                  <h2 className="text-3xl md:text-4xl font-bold text-heading">
+                    {d.timelineTitle}<span className="accent-dot">.</span>
+                  </h2>
+                </motion.div>
               </motion.div>
               <motion.div
-                className="max-w-2xl mx-auto"
+                className="max-w-2xl"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
@@ -157,12 +169,12 @@ export default function AboutContent({
                         {item.year}
                       </div>
                       {i < d.timeline.length - 1 && (
-                        <div className="w-[2px] h-full bg-border mt-2" />
+                        <div className="w-[2px] h-full mt-2" style={{ backgroundColor: "var(--border-color)" }} />
                       )}
                     </div>
                     <div className="pb-8">
-                      <h3 className="font-bold text-lg">{item.title}</h3>
-                      <p className="text-muted text-sm mt-1">{item.description}</p>
+                      <h3 className="font-bold text-lg text-heading">{item.title}</h3>
+                      <p className="text-body text-sm mt-1">{item.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -171,21 +183,22 @@ export default function AboutContent({
           </section>
 
           {/* Team */}
-          <section className="section-padding">
+          <section className="section-padding border-t border-themed">
             <div className="container-custom">
               <motion.div
-                className="text-center mb-16"
+                className="mb-16"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
               >
-                <motion.h2 className="text-3xl md:text-4xl font-bold" variants={fadeUp}>
-                  {d.teamTitle}
-                </motion.h2>
-                <motion.p className="text-muted text-lg mt-4" variants={fadeUp}>
-                  {d.teamSubtitle}
-                </motion.p>
+                <motion.div variants={fadeUp}>
+                  <div className="divider mb-6" />
+                  <h2 className="text-3xl md:text-4xl font-bold text-heading">
+                    {d.teamTitle}<span className="accent-dot">.</span>
+                  </h2>
+                  <p className="text-body text-lg mt-4">{d.teamSubtitle}</p>
+                </motion.div>
               </motion.div>
               <motion.div
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -195,12 +208,12 @@ export default function AboutContent({
                 viewport={{ once: true }}
               >
                 {d.team.map((member, i) => (
-                  <motion.div key={i} className="text-center group" variants={fadeUp} whileHover={{ y: -5 }}>
-                    <div className="w-32 h-32 mx-auto rounded-full bg-linear-to-br from-accent/10 to-accent-light/10 mb-4 flex items-center justify-center text-accent text-2xl font-bold group-hover:shadow-lg group-hover:shadow-accent/10 transition-all duration-500">
+                  <motion.div key={i} className="text-center group" variants={fadeUp}>
+                    <div className="w-28 h-28 mx-auto rounded-full bg-subtle mb-4 flex items-center justify-center text-accent text-2xl font-bold">
                       {member.name.charAt(0)}
                     </div>
-                    <h3 className="font-bold">{member.name}</h3>
-                    <p className="text-muted text-sm mt-1">{member.role}</p>
+                    <h3 className="font-bold text-heading">{member.name}</h3>
+                    <p className="text-body text-sm mt-1">{member.role}</p>
                   </motion.div>
                 ))}
               </motion.div>

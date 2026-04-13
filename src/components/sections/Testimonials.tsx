@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import type { Dictionary } from "@/i18n/getDictionary";
 
@@ -55,18 +56,14 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
                 className="w-10 h-10 border border-themed hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Previous"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                </svg>
+                <ChevronLeft size={18} />
               </button>
               <button
                 onClick={next}
                 className="w-10 h-10 border border-themed hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Next"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                </svg>
+                <ChevronRight size={18} />
               </button>
               <span className="text-sm text-body ms-2">
                 {String(current + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}

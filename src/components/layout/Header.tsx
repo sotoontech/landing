@@ -33,16 +33,16 @@ export default function Header({ dict, locale }: HeaderProps) {
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isMobileMenuOpen]);
 
   return (
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "glass border-b border-themed py-4"
-            : "py-5"
+          isScrolled ? "glass border-b border-themed py-2" : "py-3"
         }`}
         style={{ backgroundColor: isScrolled ? undefined : "var(--bg)" }}
         initial={{ y: -100 }}
@@ -55,8 +55,8 @@ export default function Header({ dict, locale }: HeaderProps) {
             <Image
               src="/images/logo.svg"
               alt={dict.site.nameEn}
-              width={140}
-              height={36}
+              width={48}
+              height={48}
               priority
               className="dark:invert"
             />
@@ -99,7 +99,9 @@ export default function Header({ dict, locale }: HeaderProps) {
               <motion.span
                 className="w-6 h-[2px] block"
                 style={{ backgroundColor: "var(--text-primary)" }}
-                animate={isMobileMenuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
+                animate={
+                  isMobileMenuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }
+                }
                 transition={{ duration: 0.3 }}
               />
               <motion.span
@@ -111,7 +113,11 @@ export default function Header({ dict, locale }: HeaderProps) {
               <motion.span
                 className="w-6 h-[2px] block"
                 style={{ backgroundColor: "var(--text-primary)" }}
-                animate={isMobileMenuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
+                animate={
+                  isMobileMenuOpen
+                    ? { rotate: -45, y: -5 }
+                    : { rotate: 0, y: 0 }
+                }
                 transition={{ duration: 0.3 }}
               />
             </button>
