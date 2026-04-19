@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import type { Dictionary } from "@/i18n/getDictionary";
 
@@ -23,15 +23,23 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
           viewport={{ once: true }}
           variants={staggerContainer}
         >
-          <motion.div className="mb-16" variants={fadeUp}>
-            <div className="divider mb-6" />
+          <motion.div
+            className="text-center max-w-2xl mx-auto mb-16"
+            variants={fadeUp}
+          >
+            <div className="divider mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-heading">
               {dict.testimonials.title}
               <span className="accent-dot">.</span>
             </h2>
           </motion.div>
 
-          <motion.div className="max-w-2xl" variants={fadeUp}>
+          <motion.div
+            className="max-w-3xl mx-auto text-center"
+            variants={fadeUp}
+          >
+            <Quote size={32} className="text-accent/20 mx-auto mb-6" />
+
             <div className="min-h-45">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -54,25 +62,45 @@ export default function Testimonials({ dict }: { dict: Dictionary }) {
               </AnimatePresence>
             </div>
 
-            <div className="flex items-center gap-3 mt-10">
-              <button
-                onClick={next}
-                className="w-10 h-10 border border-themed hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
-                aria-label="Previous"
-              >
-                <ChevronRight size={18} />
-              </button>
+            <div className="items-center justify-center gap-3 mt-10 rtl:hidden ltr:flex">
               <button
                 onClick={prev}
-                className="w-10 h-10 border border-themed hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
+                className="w-10 h-10 border border-themed rounded-full hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Next"
               >
                 <ChevronLeft size={18} />
               </button>
-              <span className="text-sm text-body ms-2">
+              <span className="text-sm text-body mx-2">
                 {String(current + 1).padStart(2, "0")} /{" "}
                 {String(items.length).padStart(2, "0")}
               </span>
+              <button
+                onClick={next}
+                className="w-10 h-10 border border-themed rounded-full hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Previous"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+            <div className="items-center justify-center gap-3 mt-10 rtl:flex ltr:hidden">
+              <button
+                onClick={next}
+                className="w-10 h-10 border border-themed rounded-full hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Next"
+              >
+                <ChevronRight size={18} />
+              </button>
+              <span className="text-sm text-body mx-2">
+                {String(items.length).padStart(2, "0")}/{" "}
+                {String(current + 1).padStart(2, "0")}
+              </span>
+              <button
+                onClick={prev}
+                className="w-10 h-10 border border-themed rounded-full hover:border-accent text-heading flex items-center justify-center transition-colors cursor-pointer"
+                aria-label="Previous"
+              >
+                <ChevronLeft size={18} />
+              </button>
             </div>
           </motion.div>
         </motion.div>

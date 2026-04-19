@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import type { Dictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
@@ -24,44 +25,58 @@ export default function Portfolio({ dict, locale }: { dict: Dictionary; locale: 
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
-          <motion.div className="mb-16" variants={fadeUp}>
-            <div className="divider mb-6" />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-heading">
+          <motion.div className="text-center max-w-2xl mx-auto mb-16" variants={fadeUp}>
+            <div className="divider mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-heading mb-4">
               {dict.portfolio.title}<span className="accent-dot">.</span>
             </h2>
-            <p className="text-body mt-4 max-w-lg">{dict.portfolio.subtitle}</p>
+            <p className="text-body text-base">{dict.portfolio.subtitle}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {dict.portfolio.items.map((item, i) => (
-              <motion.div key={i} className="group cursor-pointer" variants={fadeUp}>
-                <div className="relative aspect-16/10 overflow-hidden mb-5">
-                  <Image
-                    src={projectImages[i]}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <span className="text-xs text-body uppercase tracking-wider">{item.category}</span>
-                <h3 className="text-lg font-bold mt-1 text-heading group-hover:text-accent transition-colors duration-200">
-                  {item.title}
-                </h3>
-                <p className="text-body text-sm mt-1">{item.description}</p>
+              <motion.div key={i} className="group" variants={fadeUp}>
+                <Link href={`/${locale}/portfolio/${item.slug}`}>
+                  {/* Image */}
+                  <div className="relative aspect-16/10 overflow-hidden rounded-lg mb-5">
+                    <Image
+                      src={projectImages[i]}
+                      alt={item.title}
+                      fill
+                      className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+
+                  {/* Info */}
+                  <span className="text-xs text-accent font-medium uppercase tracking-wider">
+                    {item.category}
+                  </span>
+                  <h3 className="text-xl font-bold mt-1 mb-2 text-heading group-hover:text-accent transition-colors duration-200">
+                    {item.title}
+                  </h3>
+                  <p className="text-body text-sm mb-4">{item.description}</p>
+
+                  {/* Achievements */}
+                  <div className="flex items-center gap-6 mb-4">
+                    {item.achievements.map((ach, j) => (
+                      <div key={j}>
+                        <span className="text-lg font-bold text-accent">{ach.value}</span>
+                        <span className="block text-xs text-body mt-0.5">{ach.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* View link */}
+                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-heading group-hover:text-accent transition-colors duration-200">
+                    {dict.portfolio.viewProject}
+                    <ArrowLeft size={14} className="rtl:block ltr:hidden group-hover:-translate-x-1 transition-transform" />
+                    <ArrowRight size={14} className="rtl:hidden ltr:block group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
               </motion.div>
             ))}
           </div>
-
-          <motion.div className="mt-14" variants={fadeUp}>
-            <a
-              href={`/${locale}/portfolio`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-heading hover:text-accent transition-colors duration-200"
-            >
-              {dict.portfolio.viewAll}
-              <ArrowRight size={16} className="rtl:rotate-180" />
-            </a>
-          </motion.div>
         </motion.div>
       </div>
     </section>

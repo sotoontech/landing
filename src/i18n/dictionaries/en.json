@@ -50,26 +50,72 @@
     "title": "Our Work",
     "subtitle": "A look at the projects we've proudly delivered for our clients",
     "viewAll": "View All Projects",
+    "viewProject": "View Project Details",
+    "backToPortfolio": "Back to Portfolio",
+    "achievementsTitle": "Key Achievements",
+    "techTitle": "Technologies Used",
+    "challengeTitle": "Challenge",
+    "solutionTitle": "Solution",
     "items": [
       {
+        "slug": "moda-store",
         "title": "Moda Online Store",
         "category": "Website",
-        "description": "Online fashion store with integrated payment system"
+        "description": "Online fashion store with integrated payment system",
+        "fullDescription": "Full e-commerce store design and development for the Moda brand with integrated payment, smart inventory management, and seamless shopping experience.",
+        "achievements": [
+          { "value": "40%", "label": "Sales Increase" },
+          { "value": "2.5x", "label": "Traffic Growth" },
+          { "value": "1.2s", "label": "Load Time" }
+        ],
+        "tech": ["Next.js", "Tailwind CSS", "Stripe", "PostgreSQL"],
+        "challenge": "The previous store was slow with a low conversion rate. Users were abandoning their carts during checkout.",
+        "solution": "Complete redesign focused on speed and UX. Implemented one-step checkout and optimized images with WebP format."
       },
       {
+        "slug": "fitness-app",
         "title": "Fitness App",
         "category": "Application",
-        "description": "Fitness application with workout tracking capabilities"
+        "description": "Fitness application with workout tracking capabilities",
+        "fullDescription": "Mobile fitness app with workout tracking, personalized meal plans, and gamification features to boost user motivation.",
+        "achievements": [
+          { "value": "15K+", "label": "Active Downloads" },
+          { "value": "4.7", "label": "User Rating" },
+          { "value": "68%", "label": "Retention Rate" }
+        ],
+        "tech": ["React Native", "Node.js", "MongoDB", "Firebase"],
+        "challenge": "Needed an app that works on both iOS and Android with high performance and offline data storage for workouts.",
+        "solution": "Used React Native for cross-platform development and implemented offline sync with Firebase for uninterrupted experience."
       },
       {
+        "slug": "admin-dashboard",
         "title": "Admin Dashboard",
         "category": "Web App",
-        "description": "Advanced management panel with reporting and analytics"
+        "description": "Advanced management panel with reporting and analytics",
+        "fullDescription": "Advanced admin dashboard with interactive charts, real-time reporting, and multi-level user management system.",
+        "achievements": [
+          { "value": "60%", "label": "Faster Reporting" },
+          { "value": "500+", "label": "Daily Active Users" },
+          { "value": "99.9%", "label": "Server Uptime" }
+        ],
+        "tech": ["React", "TypeScript", "D3.js", "Python"],
+        "challenge": "The previous reporting system was manual and time-consuming. Managers couldn't monitor status in real-time.",
+        "solution": "Implemented real-time dashboard with interactive charts and automatic alert system for key performance indicators."
       },
       {
+        "slug": "noavaran-website",
         "title": "Noavaran Corporate Website",
         "category": "Website",
-        "description": "Corporate website with minimal and professional design"
+        "description": "Corporate website with minimal and professional design",
+        "fullDescription": "Corporate website for Noavaran with minimal design, smooth animations, and full SEO optimization for search engine visibility.",
+        "achievements": [
+          { "value": "3x", "label": "Organic Traffic Growth" },
+          { "value": "95+", "label": "Lighthouse Score" },
+          { "value": "25%", "label": "More Inbound Leads" }
+        ],
+        "tech": ["Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
+        "challenge": "The old website was outdated, non-responsive, and ranked poorly in Google search results.",
+        "solution": "Complete redesign with Mobile-first approach and technical SEO optimization including SSR, Schema markup, and Core Web Vitals."
       }
     ]
   },
@@ -178,7 +224,10 @@
       "budgetOptions": ["$1,000 - $3,000", "$3,000 - $5,000", "$5,000 - $10,000", "$10,000+"],
       "message": "Project Details",
       "messagePlaceholder": "Tell us about your project...",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "successTitle": "Message sent!",
+      "successMessage": "We'll get back to you soon.",
+      "sendAnother": "Send another message"
     },
     "infoTitle": "Get in Touch",
     "infoSubtitle": "Reach out to us through any channel you prefer",

@@ -59,7 +59,7 @@ export default function Header({ dict, locale }: HeaderProps) {
               width={48}
               height={48}
               priority
-              // className="dark:invert"
+              className="light:invert"
             />
           </a>
 

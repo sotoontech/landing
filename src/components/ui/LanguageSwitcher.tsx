@@ -22,12 +22,7 @@ export default function LanguageSwitcher({ locale }: { locale: Locale }) {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      <span className="text-xs">
-        {otherLocale === "en" ? "EN" : "فا"}
-      </span>
-      <span className="hidden sm:inline text-xs">
-        {localeNames[otherLocale]}
-      </span>
+      <span className="text-xs">{otherLocale === "en" ? "EN" : "فا"}</span>
     </motion.a>
   );
 }

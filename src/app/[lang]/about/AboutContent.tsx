@@ -142,40 +142,48 @@ export default function AboutContent({
           <section className="section-padding border-t border-themed">
             <div className="container-custom">
               <motion.div
-                className="mb-16"
+                className="text-center max-w-2xl mx-auto mb-16"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={staggerContainer}
               >
                 <motion.div variants={fadeUp}>
-                  <div className="divider mb-6" />
+                  <div className="divider mx-auto mb-6" />
                   <h2 className="text-3xl md:text-4xl font-bold text-heading">
                     {d.timelineTitle}<span className="accent-dot">.</span>
                   </h2>
                 </motion.div>
               </motion.div>
               <motion.div
-                className="max-w-2xl"
+                className="grid grid-cols-4"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
               >
                 {d.timeline.map((item, i) => (
-                  <motion.div key={i} className="flex gap-6 mb-8 last:mb-0" variants={fadeUp}>
-                    <div className="flex flex-col items-center">
-                      <div className="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center font-bold text-sm shrink-0">
+                  <motion.div key={i} className="text-center" variants={fadeUp}>
+                    {/* Dot + line row */}
+                    <div className="flex items-center mb-8">
+                      {/* Line before */}
+                      <div
+                        className="h-0.5 flex-1"
+                        style={{ backgroundColor: i === 0 ? "transparent" : "var(--border-color)" }}
+                      />
+                      {/* Dot */}
+                      <div className="w-14 h-14 shrink-0 rounded-full bg-accent text-white flex items-center justify-center font-bold text-sm shadow-md shadow-accent/20">
                         {item.year}
                       </div>
-                      {i < d.timeline.length - 1 && (
-                        <div className="w-[2px] h-full mt-2" style={{ backgroundColor: "var(--border-color)" }} />
-                      )}
+                      {/* Line after */}
+                      <div
+                        className="h-0.5 flex-1"
+                        style={{ backgroundColor: i === d.timeline.length - 1 ? "transparent" : "var(--border-color)" }}
+                      />
                     </div>
-                    <div className="pb-8">
-                      <h3 className="font-bold text-lg text-heading">{item.title}</h3>
-                      <p className="text-body text-sm mt-1">{item.description}</p>
-                    </div>
+                    {/* Text */}
+                    <h3 className="font-bold text-lg text-heading mb-1.5">{item.title}</h3>
+                    <p className="text-body text-sm leading-relaxed px-4">{item.description}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -209,8 +217,14 @@ export default function AboutContent({
               >
                 {d.team.map((member, i) => (
                   <motion.div key={i} className="text-center group" variants={fadeUp}>
-                    <div className="w-28 h-28 mx-auto rounded-full bg-subtle mb-4 flex items-center justify-center text-accent text-2xl font-bold">
-                      {member.name.charAt(0)}
+                    <div className="w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 relative">
+                      <Image
+                        src={`/images/team/member-${i + 1}.jpg`}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="112px"
+                      />
                     </div>
                     <h3 className="font-bold text-heading">{member.name}</h3>
                     <p className="text-body text-sm mt-1">{member.role}</p>
