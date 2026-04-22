@@ -104,7 +104,7 @@ export default function Footer({
         >
           <motion.div variants={fadeUp} className="lg:col-span-1">
             <Image
-              src="/images/logo.svg"
+              src={(dict.site as { logo?: string }).logo || "/images/logo.svg"}
               alt={dict.site.nameEn}
               width={120}
               height={32}

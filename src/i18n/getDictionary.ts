@@ -1,12 +1,10 @@
 import type { Locale } from "./config";
+import { getContent } from "@/lib/content";
+import fa from "./dictionaries/fa.json";
 
-const dictionaries = {
-  fa: () => import("./dictionaries/fa.json").then((m) => m.default),
-  en: () => import("./dictionaries/en.json").then((m) => m.default),
+export type Dictionary = typeof fa;
+
+export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
+  const content = await getContent(locale);
+  return content as Dictionary;
 };
-
-export const getDictionary = async (locale: Locale) => {
-  return dictionaries[locale]();
-};
-
-export type Dictionary = Awaited<ReturnType<typeof getDictionary>>;

@@ -88,7 +88,10 @@ export default function AboutContent({
                   variants={slideInLeft}
                 >
                   <Image
-                    src="/images/about/team.jpg"
+                    src={
+                      (d as { storyImage?: string }).storyImage ||
+                      "/images/about/team.jpg"
+                    }
                     alt="Sotoon Tech Team"
                     fill
                     className="object-cover"
@@ -219,7 +222,10 @@ export default function AboutContent({
                   <motion.div key={i} className="text-center group" variants={fadeUp}>
                     <div className="w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 relative">
                       <Image
-                        src={`/images/team/member-${i + 1}.jpg`}
+                        src={
+                          (member as { image?: string }).image ||
+                          `/images/team/member-${i + 1}.jpg`
+                        }
                         alt={member.name}
                         fill
                         className="object-cover"

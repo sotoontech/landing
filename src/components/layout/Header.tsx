@@ -54,7 +54,7 @@ export default function Header({ dict, locale }: HeaderProps) {
           {/* Logo */}
           <a href={`/${locale}`} className="flex items-center gap-2">
             <Image
-              src="/images/logo.svg"
+              src={(dict.site as { logo?: string }).logo || "/images/logo.svg"}
               alt={dict.site.nameEn}
               width={48}
               height={48}

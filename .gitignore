@@ -29,7 +29,19 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files
+.env
 .env*.local
+
+# database
+/data/*.db
+/data/*.db-journal
+
+# uploads (runtime only)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# prisma generated
+/node_modules/.prisma
 
 # vercel
 .vercel

@@ -3,6 +3,8 @@ import type { Locale } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import PortfolioDetailContent from "./PortfolioDetailContent";
 
+export const dynamic = "force-dynamic";
+
 export default async function PortfolioDetailPage({
   params,
 }: {

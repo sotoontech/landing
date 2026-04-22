@@ -8,7 +8,7 @@ import { fadeUp, staggerContainer } from "@/lib/animations";
 import type { Dictionary } from "@/i18n/getDictionary";
 import type { Locale } from "@/i18n/config";
 
-const projectImages = [
+const fallbackImages = [
   "/images/portfolio/project-1.jpg",
   "/images/portfolio/project-2.jpg",
   "/images/portfolio/project-3.jpg",
@@ -40,7 +40,9 @@ export default function Portfolio({ dict, locale }: { dict: Dictionary; locale: 
                   {/* Image */}
                   <div className="relative aspect-16/10 overflow-hidden rounded-lg mb-5">
                     <Image
-                      src={projectImages[i]}
+                      src={
+                        (item as { image?: string }).image || fallbackImages[i % fallbackImages.length]
+                      }
                       alt={item.title}
                       fill
                       className="object-cover group-hover:scale-[1.03] transition-transform duration-500"

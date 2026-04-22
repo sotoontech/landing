@@ -12,7 +12,7 @@ import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import PageTransition from "@/components/ui/PageTransition";
 
-const projectImages = [
+const fallbackImages = [
   "/images/portfolio/project-1.jpg",
   "/images/portfolio/project-2.jpg",
   "/images/portfolio/project-3.jpg",
@@ -71,7 +71,10 @@ export default function PortfolioDetailContent({
                 className="relative w-full aspect-video rounded-lg overflow-hidden mb-12"
               >
                 <Image
-                  src={projectImages[projectIndex]}
+                  src={
+                    (project as { image?: string }).image ||
+                    fallbackImages[projectIndex % fallbackImages.length]
+                  }
                   alt={project.title}
                   fill
                   className="object-cover"

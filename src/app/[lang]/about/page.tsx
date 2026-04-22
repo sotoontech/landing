@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "About | Sotoon Tech",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function AboutPage({
   params,
 }: {
