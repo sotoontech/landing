@@ -41,7 +41,8 @@ export async function setSessionCookie(token: string): Promise<void> {
   c.set(COOKIE_NAME, token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    // Opt-in: only set Secure when deployed behind HTTPS (set COOKIE_SECURE=true in env).
+    secure: process.env.COOKIE_SECURE === "true",
     path: "/",
     maxAge: 60 * 60 * 24 * 7,
   });

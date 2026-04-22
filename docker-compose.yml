@@ -20,6 +20,8 @@ services:
       JWT_SECRET: ${JWT_SECRET:-change-me-to-a-long-random-string}
       ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
+      # Set to "true" only when serving admin over HTTPS.
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
     volumes:
       - sotoon-db:/app/data
       - sotoon-uploads:/app/public/uploads
