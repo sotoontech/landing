@@ -38,7 +38,12 @@ RUN npx esbuild prisma/seed.ts \
 
 # ---------- runner ----------
 FROM node:20-alpine AS runner
-RUN apk add --no-cache libc6-compat openssl
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG NO_PROXY
+RUN HTTP_PROXY=${HTTP_PROXY} HTTPS_PROXY=${HTTPS_PROXY} NO_PROXY=${NO_PROXY} \
+    http_proxy=${HTTP_PROXY} https_proxy=${HTTPS_PROXY} no_proxy=${NO_PROXY} \
+    apk add --no-cache libc6-compat openssl wget
 WORKDIR /app
 ENV NODE_ENV=production \
     PORT=3000 \
