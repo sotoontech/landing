@@ -9,8 +9,9 @@ services:
         NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
     container_name: sotoon-web
     restart: unless-stopped
-    ports:
-      - "${PORT:-3000}:3000"
+    # No host port publish — Caddy is the only public entry point.
+    expose:
+      - "3000"
     environment:
       NODE_ENV: production
       PORT: 3000
@@ -20,18 +21,29 @@ services:
       JWT_SECRET: ${JWT_SECRET:-change-me-to-a-long-random-string}
       ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
-      # Set to "true" only when serving admin over HTTPS.
-      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      # Now that Caddy serves HTTPS, cookies can be marked Secure.
+      COOKIE_SECURE: ${COOKIE_SECURE:-true}
     volumes:
       - sotoon-db:/app/data
       - sotoon-uploads:/app/public/uploads
-    healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/fa"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
-      start_period: 30s
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: sotoon-caddy
+    restart: unless-stopped
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy/certs:/etc/caddy/certs:ro
+      - caddy-data:/data
+      - caddy-config:/config
 
 volumes:
   sotoon-db:
   sotoon-uploads:
+  caddy-data:
+  caddy-config:

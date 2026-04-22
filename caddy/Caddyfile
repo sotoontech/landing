@@ -1,0 +1,38 @@
+{
+	# We bring our own certs (LE issued via DNS-01 from another machine).
+	# Disable automatic ACME — this origin cannot reach Let's Encrypt anyway.
+	auto_https disable_certs
+	admin off
+}
+
+# Apex domain
+sotoontech.ir:443 {
+	tls /etc/caddy/certs/origin.pem /etc/caddy/certs/origin.key
+
+	encode gzip zstd
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options    "nosniff"
+		X-Frame-Options           "SAMEORIGIN"
+		Referrer-Policy           "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	reverse_proxy web:3000 {
+		header_up X-Real-IP         {remote_host}
+		header_up X-Forwarded-For   {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}
+
+# www → apex
+www.sotoontech.ir:443 {
+	tls /etc/caddy/certs/origin.pem /etc/caddy/certs/origin.key
+	redir https://sotoontech.ir{uri} permanent
+}
+
+# Plain HTTP → HTTPS
+http://sotoontech.ir, http://www.sotoontech.ir {
+	redir https://sotoontech.ir{uri} permanent
+}

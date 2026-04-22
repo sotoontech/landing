@@ -40,6 +40,10 @@ yarn-error.log*
 /public/uploads/*
 !/public/uploads/.gitkeep
 
+# TLS certs & private keys — never commit
+/caddy/certs/*
+!/caddy/certs/.gitkeep
+
 # prisma generated
 /node_modules/.prisma
 
