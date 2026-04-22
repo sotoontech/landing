@@ -29,6 +29,12 @@ COPY . .
 ENV DATABASE_URL="file:/tmp/build.db"
 RUN npx prisma generate
 RUN npm run build
+# Pre-compile the seed to a single self-contained CJS file so the runtime
+# doesn't need tsx/esbuild/typescript.
+RUN npx esbuild prisma/seed.ts \
+      --bundle --platform=node --target=node20 --format=cjs \
+      --external:@prisma/client --external:.prisma/client \
+      --outfile=prisma/seed.cjs
 
 # ---------- runner ----------
 FROM node:20-alpine AS runner
@@ -46,15 +52,13 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
-# Prisma: schema, seed, migrations, generated client, tsx runner
+# Prisma: schema, compiled seed, generated client + CLI (for db push)
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/src/i18n/dictionaries ./src/i18n/dictionaries
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/prisma ./node_modules/prisma
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/tsx ./node_modules/tsx
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/bcryptjs ./node_modules/bcryptjs
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/typescript ./node_modules/typescript
 
 COPY --chown=nextjs:nodejs docker-entrypoint.sh ./docker-entrypoint.sh
 RUN chmod +x ./docker-entrypoint.sh && \
